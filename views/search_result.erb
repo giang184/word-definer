@@ -1,0 +1,6 @@
+<h3>Search Result: <%= @search_words.length()%> found<h3>
+<% @search_words.values.each do |element| %>
+  <li><a href="/words/<%= element.id %>"><%= element.name %></a></li>
+<% end %>
+<br>
+<a href="/words">Return to album list</a>

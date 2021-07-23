@@ -39,7 +39,7 @@ class Word
   end
 
   def self.search(name)
-    @@words.select{|key, value| value.name == name}
+    @@words.select{|key, value| value.name.downcase.include? name.downcase}
   end
 
   def self.sort

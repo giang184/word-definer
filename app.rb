@@ -53,3 +53,7 @@ delete('/words/:id') do
   redirect to('/words')
 end
 
+post('/words/search_result') do
+  @search_words = Word.search(params[:search])
+  erb(:search_result)
+end
