@@ -1,6 +1,12 @@
-<h4> Words sorted by alphabetical order: </h4>
+<h4> Words and their definitions sorted by alphabetical order: </h4>
 <% @sorted_words.values().each do |element| %>
-  <li><a href="/words/<%= element.id %>"><%= element.name %></a></li>
+  <li><big><a href="/words/<%= element.id %>"><%= element.name %></a></big>
+  <ol>
+    <% element.definitions.each do |d| %>
+      <li><a href="/words/<%= d.word.id %>/definitions/<%= d.id %>"><%= d.name %></a></li>
+      <% end %>
+    </ol>
+  </li>
+  <br>
 <% end %>
-<br>
 <a href="/words">Return to homepage</a>

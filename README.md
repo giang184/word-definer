@@ -14,6 +14,10 @@ This project contains a `word` class and a `definition` class. The live site hav
 * Sinatra application uses views, instance variables and forms.
 * Sinatra routes process GET and POST requests/responses.
 * Project includes thorough and passing integration specs as well as specs for both classes.
+* Allow users to sort Words alphabetically.
+* Allow users to search for a particular Word in the application.
+* Include a randomizer button where users can randomly look at a Word.
+* Include a page where users can view all Words and their corresponding definitions in one list.
 
 ## Set up and Installation
 
