@@ -73,3 +73,19 @@ describe('sort the word list', {:type => :feature}) do
     expect(page).to have_content('Words sorted by alphabetical order')
   end
 end
+
+describe('add a definition to the list and update it', {:type => :feature}) do
+  it('should sort the word list') do
+    visit('/words')
+    click_on('Add a new word')
+    fill_in('word_name', :with => 'swimming')
+    click_on('Go!')
+    click_on('swimming')
+    fill_in('definition_name', :with => 'you paddle with your arms')
+    click_on('Add')
+    click_on('you paddle with your arms')
+    fill_in('name', :with => 'you paddle with your legs')
+    click_on('Update')
+    expect(page).to have_content('you paddle with your legs')
+  end
+end
