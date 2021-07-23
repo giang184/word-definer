@@ -37,3 +37,28 @@ describe('visits a word page', {:type => :feature}) do
     expect(page).to have_content('Word: hello')
   end
 end
+
+describe('visits a word page', {:type => :feature}) do
+  it('should visit a word page when clicked on a word') do
+    visit('/words')
+    click_on('Add a new word')
+    fill_in('word_name', :with => 'bye')
+    click_on('Go!')
+    click_on('bye')
+    expect(page).to have_content('Word: bye')
+  end
+end
+
+describe('update a word', {:type => :feature}) do
+  it('should update a word') do
+    visit('/words')
+    click_on('Add a new word')
+    fill_in('word_name', :with => 'good')
+    click_on('Go!')
+    click_on('good')
+    click_on('Edit word')
+    fill_in('name', :with => 'bad')
+    click_on('Update')
+    expect(page).to have_content('bad')
+  end
+end

@@ -1,30 +1,29 @@
 <h1>Word: <%= @word.name %></h1>
 
-<h3>Definitions:</h3>
 
-  <% if @word.definitions() %>
+<% if @word.definitions().length > 0%>
+<h3>Definitions:</h3>
     <ol>
       <% @word.definitions().each do |element| %>
         <li><a href="/words/<%= @word.id %>/definitions/<%= element.id %>"><%= element.name %></a></li>
       <% end %>
     </ol>
   <% else %>
-    <p>There are no definition listed for this word yet.</p>
+    <p>There are no definitions listed for this word yet.</p>
   <% end %>
-
+<br>
 <h4>Add a definition:</h4>
 
 <form action="/words/<%= @word.id %>/definitions" method="post">
   <div class="form-group">
-    <label for="definition_name">Song name</label>
     <input id="definition_name" name="definition_name" class="form-control" type="text">
   </div>
-  <button type="submit" class="btn">Add song</button>
+  <button type="submit" class="btn">Add</button>
 </form>
 
+<br><br>
 
+<p><a href="/words/<%= @word.id %>/edit">Edit word</a></p>
 
-<p><a href="/words/<%= @word.id %>/edit">Edit album</a></p>
-
-<p><a href="/albums">Return to album list</a></p>
+<p><a href="/words">Return home</a></p>
 
