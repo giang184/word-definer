@@ -14,3 +14,19 @@ get('/words') do
   @words = Word.all
   erb(:words)
 end
+
+get('/words/new') do
+  erb(:new_word)
+end
+
+post('/words') do
+  word1 = Word.new(params[:word_name], nil)
+  word1.save()
+  @words = Word.all()
+  erb(:words)
+end
+
+get('/words/:id') do
+  @word = Word.find(params[:id].to_i())
+  erb(:word)
+end
