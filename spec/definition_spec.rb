@@ -20,4 +20,25 @@ describe '#Definition' do
     end
   end
 
+  describe('.all') do
+    it("returns a list of all definitions") do
+      def1 = Definition.new("ball", @word.id, nil)
+      def1.save()
+      def2 = Definition.new("game of kick", @word.id, nil)
+      def2.save()
+      expect(Definition.all).to(eq([def1, def2]))
+    end
+  end
+
+  describe('.clear') do
+    it("clears all definitions") do
+      def1 = Definition.new("ball", @word.id, nil)
+      def1.save()
+      def2 = Definition.new("game of kick", @word.id, nil)
+      def2.save()
+      Definition.clear()
+      expect(Definition.all).to(eq([]))
+    end
+  end
+
 end
