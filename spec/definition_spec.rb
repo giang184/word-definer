@@ -59,4 +59,24 @@ describe '#Definition' do
     end
   end
 
+  describe('#update') do
+    it("updates a definition by id") do
+      def1 = Definition.new("ball", @word.id, nil)
+      def1.save()
+      def1.update("game of kick", @word.id)
+      expect(def1.name).to(eq("game of kick"))
+    end
+  end
+
+  describe('#delete') do
+    it("deletes a definition by id") do
+      def1 = Definition.new("ball", @word.id, nil)
+      def1.save()
+      def2 = Definition.new("game of kick", @word.id, nil)
+      def2.save()
+      def1.delete()
+      expect(Definition.all).to(eq([def2]))
+    end
+  end
+
 end
