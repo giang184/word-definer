@@ -112,7 +112,7 @@ describe '#Word' do
       def1.save()
       def2 = Definition.new("the loneliest number", word1.id, nil)
       def2.save()
-      expect(word1.definitions).to(eq([def1, def2]))
+      expect(word1.definitions()).to(eq([def1, def2]))
     end
   end
 end

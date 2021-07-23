@@ -79,4 +79,23 @@ describe '#Definition' do
     end
   end
 
+  describe('.find_by_word') do
+    it("finds definition for a word") do
+      word1 = Word.new('football', nil)
+      word1.save()
+      def1 = Definition.new("game of kick", @word.id, nil)
+      def1.save()
+      def2 = Definition.new("game of run and throw", word1.id, nil)
+      def2.save()
+      expect(Definition.find_by_word(word1.id)).to(eq([def2]))
+    end
+  end
+
+  describe('#word') do
+    it("finds the word a definition belongs to") do
+      def1 = Definition.new("game of kick", @word.id, nil)
+      def1.save()
+      expect(def1.word()).to(eq(@word))
+    end
+  end
 end

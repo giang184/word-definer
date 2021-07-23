@@ -1,5 +1,5 @@
 class Word
-  attr_reader :id, :year, :genre, :artist
+  attr_reader :id
   attr_accessor :name
   @@words = {}
   @@total_rows = 0
