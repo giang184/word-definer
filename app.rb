@@ -57,3 +57,15 @@ post('/words/search_result') do
   @search_words = Word.search(params[:search])
   erb(:search_result)
 end
+
+get('/words/:id/definitions/:definition_id') do
+  @word = Word.find(params[:id].to_i())
+  erb(:definition)
+end
+
+post('/words/:id/definitions') do
+  @word = Word.find(params[:id].to_i())
+  definition = Definition.new(params[:definition_name], @word.id, nil)
+  definition.save()
+  erb(:word)
+end
