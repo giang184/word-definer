@@ -13,4 +13,14 @@ describe '#Word' do
     end
   end
 
+  describe('#save') do
+    it("saves an word") do
+      word1 = Word.new('one', nil)
+      word1.save()
+      word2 = Word.new('two', nil)
+      word2.save()
+      expect(Word.all).to(eq([word1, word2]))
+    end
+  end
+
 end
