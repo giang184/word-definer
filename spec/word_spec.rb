@@ -44,4 +44,13 @@ describe '#Word' do
     end
   end
 
+  describe('.find') do
+    it("finds a song by id") do
+      word1 = Word.new('one', nil)
+      word1.save()
+      word2 = Word.new('one', nil)
+      word2.save()
+      expect(Word.find(word1.id)).to(eq(word1))
+    end
+  end
 end
