@@ -24,6 +24,12 @@ get('/words/sort') do
   erb(:sort)
 end
 
+get('/words/random') do
+  random = rand(1..Word.all.length)
+  @word = Word.find(1)
+  redirect to("/words/#{random}")
+end
+
 post('/words') do
   word1 = Word.new(params[:word_name], nil)
   word1.save()

@@ -43,7 +43,6 @@ class Word
   end
 
   def self.sort
-    #for each item in the hash, retrieve the names and push into array. Sort the array. Then search for each names in the array (which returns Album object), push that into a new Hash. Reassign
     temp = @@words.sort_by { |key, val| val.name.downcase }
     temp_hash = {}
     temp.each { |element|
