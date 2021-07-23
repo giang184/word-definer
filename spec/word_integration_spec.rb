@@ -62,3 +62,14 @@ describe('update a word', {:type => :feature}) do
     expect(page).to have_content('bad')
   end
 end
+
+describe('sort the word list', {:type => :feature}) do
+  it('should sort the word list') do
+    visit('/words')
+    click_on('Add a new word')
+    fill_in('word_name', :with => 'hi')
+    click_on('Go!')
+    click_on('View Sorted List')
+    expect(page).to have_content('Words sorted by alphabetical order')
+  end
+end

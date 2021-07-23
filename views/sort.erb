@@ -1,0 +1,6 @@
+<h4> Words sorted by alphabetical order: </h4>
+<% @sorted_words.values().each do |element| %>
+  <li><a href="/words/<%= element.id %>"><%= element.name %></a></li>
+<% end %>
+<br>
+<a href="/words">Return to homepage</a>
