@@ -12,7 +12,7 @@ class Definition
   end
 
   def ==(definition_to_compare)
-    (self.name() == definition_to_compare.name()) && (self.word_id() == definition.word_id())
+    (self.name == definition_to_compare.name) && (self.word_id == definition_to_compare.word_id)
   end
 
   def self.all
@@ -45,7 +45,7 @@ class Definition
     words = []
     @@definitions.values.each do |element|
       if element.word_id == wrd_id
-        words.push(def)
+        words.push(element)
       end
     end
     words

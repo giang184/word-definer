@@ -1,5 +1,6 @@
 require 'rspec'
 require 'word'
+require 'definition'
 
 describe '#Word' do
 
@@ -98,7 +99,19 @@ describe '#Word' do
       word2 = Word.new('two', nil)
       word2.save()
       temp = {word2.id=>word2}
-      expect(Album.search('two')).to(eq(temp))
+      expect(Word.search('two')).to(eq(temp))
+    end
+  end
+
+  describe('#definitions') do
+    it("returns an word's definitions") do
+      word1 = Word.new('one', nil)
+      word1.save()
+      def1 = Definition.new("the first counting number", word1.id, nil)
+      def1.save()
+      def2 = Definition.new("the loneliest number", word1.id, nil)
+      def2.save()
+      expect(word1.definitions).to(eq([def1, def2]))
     end
   end
 end
