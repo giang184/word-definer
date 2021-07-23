@@ -33,4 +33,15 @@ describe '#Word' do
     end
   end
 
+  describe('.clear') do
+    it("clears all word") do
+      word1 = Word.new('one', nil)
+      word1.save()
+      word2 = Word.new('one', nil)
+      word2.save()
+      Word.clear()
+      expect(Word.all).to(eq([]))
+    end
+  end
+
 end

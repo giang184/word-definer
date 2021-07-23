@@ -38,5 +38,4 @@ class Word
     @@words.delete(self.id)
   end
 
-
 end
