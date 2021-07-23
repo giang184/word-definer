@@ -1,0 +1,26 @@
+<h1>Your Own Dictionary</h1>
+
+<% if @words.any? %>
+  <h3>Current Available Words:</h3>
+  <ul>
+    <% @words.each do |word| %>
+      <li><a href="/words/<%= word.id %>"><%= word.name %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p><em>There are currently no words to display.</em></p>
+<% end %>
+<br>
+<a href="/words/new">Add a new word</a>
+<br>
+<br>
+<a href="/words/sort">View Sorted List</a>
+<br>
+<br>
+<form action="/words/search_result"  method="post">
+
+    <label for="search">Search:</label>
+    <input id="search" name="search" type="text">
+  
+  <button type="submit" class="btn">Go!</button>
+</form>
