@@ -67,10 +67,27 @@ describe '#Word' do
     it("deletes a word by id") do
       word1 = Word.new('one', nil)
       word1.save()
-      word2 = Word.new('one', nil)
+      word2 = Word.new('two', nil)
       word2.save()
       word1.delete()
       expect(Word.all).to(eq([word2]))
+    end
+  end
+
+  describe('#sort') do
+    it("sort by name") do
+      word1 = Word.new('one', nil)
+      word1.save()
+      word2 = Word.new('two', nil)
+      word2.save()
+      word3 = Word.new('three', nil)
+      word3.save()
+      word4 = Word.new('four', nil)
+      word4.save()
+      expect(Word.sort().values[0]).to(eq(word4))
+      expect(Word.sort().values[1]).to(eq(word1))
+      expect(Word.sort().values[2]).to(eq(word3))
+      expect(Word.sort().values[3]).to(eq(word2))
     end
   end
 end
