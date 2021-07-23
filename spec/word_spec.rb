@@ -90,4 +90,15 @@ describe '#Word' do
       expect(Word.sort().values[3]).to(eq(word2))
     end
   end
+
+  describe('#search') do
+    it("search by name") do
+      word1 = Word.new('one', nil)
+      word1.save()
+      word2 = Word.new('two', nil)
+      word2.save()
+      temp = {word2.id=>word2}
+      expect(Album.search('two')).to(eq(temp))
+    end
+  end
 end
