@@ -1,12 +1,16 @@
 require 'rspec'
-require 'hello'
+require 'word'
 
-describe '#Hello' do
+describe '#Word' do
 
-  describe('#hello_world') do
-    it("says Hello World!") do
-      hello = Hello.new()
-      expect(hello.hello_world()).to(eq("Hello world!"))
+  before(:each) do
+    Word.clear()
+  end
+
+  describe('.all') do
+    it("returns an empty array when there are no words") do
+      expect(Word.all).to(eq([]))
     end
   end
+
 end
