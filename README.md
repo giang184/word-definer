@@ -36,6 +36,9 @@ This project contains a `word` class and a `definition` class. The live site hav
       
 * With this alias, the `dspec` command will automatically run RSpec tests. You can use `binding.pry` as needed.
 
+## Heroku Live link
+* For a preview, visit [this site](https://powerful-oasis-88500.herokuapp.com/).
+
 ## Known Bugs
 
 * none
