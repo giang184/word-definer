@@ -100,6 +100,20 @@ describe('add a definition', {:type => :feature}) do
   end
 end
 
+describe('visit a definition page', {:type => :feature}) do
+  it('should visit a definition page when clicked on a definition') do
+    visit('/words')
+    click_on('Add a new word')
+    fill_in('word_name', :with => 'games')
+    click_on('Go!')
+    click_on('games')
+    fill_in('definition_name', :with => 'things to play')
+    click_on('Add')
+    click_on('things to play')
+    expect(page).to have_content('things to play')
+  end
+end
+
 describe('update a definition', {:type => :feature}) do
   it('should update a definition') do
     visit('/words')
